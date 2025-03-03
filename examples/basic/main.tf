@@ -3,9 +3,9 @@ module "networking" {
   source = "github.com/SailerAI/terraform-aws-networking"
 
   # Project identification and environment settings
-  project_name = var.project_name
-  environment  = var.environment
-  region       = var.region
+  project_name = "sailer"
+  environment  = "example"
+  region       = "us-east-1"
 
   vpc_cidr         = "10.100.0.0/16"
   private_subnets  = ["10.100.0.0/20", "10.100.16.0/20", "10.100.32.0/20"]
