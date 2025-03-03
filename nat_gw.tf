@@ -17,12 +17,12 @@ locals {
 }
 
 resource "aws_eip" "nat" {
-  count = local.nat_gateway_count
+  count  = local.nat_gateway_count
   domain = "vpc"
 
-    tags = merge(
+  tags = merge(
     {
-      "Name" = format("%s-%s-nat-eip%s",var.project_name ,var.environment, replace(element(var.azs, var.single_nat_gateway ? 0 : count.index), "us-east", ""))
+      "Name" = format("%s-%s-nat-eip%s", var.project_name, var.environment, replace(element(var.azs, var.single_nat_gateway ? 0 : count.index), "us-east", ""))
     },
     var.tags,
   )
@@ -45,7 +45,7 @@ resource "aws_nat_gateway" "this" {
 
   tags = merge(
     {
-     "Name" = format("%s-%s-nat-gw%s",var.project_name ,var.environment, replace(element(var.azs, var.single_nat_gateway ? 0 : count.index), "us-east", ""))},   
+    "Name" = format("%s-%s-nat-gw%s", var.project_name, var.environment, replace(element(var.azs, var.single_nat_gateway ? 0 : count.index), "us-east", "")) },
     var.tags,
   )
 

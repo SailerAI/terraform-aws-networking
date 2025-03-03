@@ -113,7 +113,7 @@ variable "database_subnet_tags" {
 variable "single_nat_gateway" {
   description = "Should be true if you want to provision a single shared NAT Gateway for the VPC"
   type        = bool
-  default     = true  
+  default     = true
 }
 
 variable "one_nat_gateway_per_az" {
